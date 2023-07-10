@@ -19,6 +19,8 @@ IAM Policy
 
 ---
 
+
+
 ## **EC2**
 EC2 : Elastic Compute Cloud = Infrastructure as a Service
 - 부트스트래핑 : 부팅 작업을 자동화하는 것. 초기 인스턴스 시자 시 필요한 유저 데이터(관련 라이브러리, 소프트웨어 업데이트... 등), 루트 계정에서 수행된다.
