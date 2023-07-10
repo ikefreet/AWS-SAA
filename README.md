@@ -10,7 +10,7 @@ AWS CLI
 - CLOUDSHELL을 통해 웹페이지에서 터미널 사용 가능
 - CLOUDSHELL을 지원하는 리전이 있고 지원하지 않는 리전이 있다.
 
-IAM Role
+**IAM Role**
 - 서비스에 역할을 부여
 - EC2 서비스에 IAM Role을 부여해 AWS 다른 서비스에 접근할 수 있도록 한다.
 
