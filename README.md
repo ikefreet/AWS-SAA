@@ -127,3 +127,6 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - 파일을 공유하는 방식
   - Linux 인스턴스에서만 가능
   - EBS에 비해 비용이 비싸다.
+
+
+## 고가용성(High Availability) & 스케일링(Scalability)
