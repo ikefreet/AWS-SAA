@@ -109,3 +109,21 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 - EC2에 설정하고자 하는 소프트웨어나 설정을 pre-package하기 때문에 빠른다.
 - 리전 사이 복제가 가능
 
+**Amazon EFS**
+- Elastic File System
+  - 여러 EC2에 마운트되는 NFS(Network File System)을 관리
+  - EFS는 Multi-AZ에서 EC2 인스턴스들에 작용된다.
+  - 가용성과 확장성이 뛰어나지만 gp2 EBS Volume에 비해 3배 정도 비싸다. 사용량만큼 지불하므로 미리 용량 프로비저닝할 필요가 없다.
+  - Linux 기반 AMI에서만 사용가능
+
+**EBS VS EFS**
+- EBS
+  - 한 개의 인스턴스에만 연결되고 하나의 AZ에 종속된다.
+  - EBS Volume을 다른 AZ로 이주시키고자 할 때
+    - Snapshot 생성 -> EBS Snapshot을 다른 AZ에 저장
+    - EBS 백업은 IO를 사용하므로 앱이 큰 트래픽을 사용할 시 적합하지 않다.
+- EFS
+  - 수 백개의 인스턴스들을 여러 AZ에 생성하고 연결할 수 있다.
+  - 파일을 공유하는 방식
+  - Linux 인스턴스에서만 가능
+  - EBS에 비해 비용이 비싸다.
