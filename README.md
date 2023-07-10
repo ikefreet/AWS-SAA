@@ -71,10 +71,41 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - Elastic Block Store의 약자로 인스턴스 실행 중 연결 가능한 네트워크 드라이브로 인스턴스가 종료되어도 이전 EBS Volume을 마운트하면 데이터를 다시 받을 수 있다.
   - 물리 드라이브가 아닌 네트워크 드라이브
   - EC2 인스턴스 생성 시 Delete on terminate 옵션이 존재하며 이를 통해 인스턴스가 종료시 EBS Volume 역시 디폴트로 삭제된다. 삭제되지 않고 유지하기를 원하는 경우 이 옵션을 해제한다.
+  - Type
+    - gp2/gp3 (SSD) : 다양한 워크로드에 대해 가격과 성능의 절충안.
+        - gp2 : 최대 3000IOPS
+        - gp3 : 기본 성능 3000IOPS, 초당 125 MiB/s throughput
+    - io1/io2 (SSD) : 고성능의 SSD이고 mission-critical하고 저지연으로 좋은 성능을 내는 워크로드에 적합
+    - st1(HDD) : 저비용의 HDD 볼륨으로 잦은 접근과 처리량이 많은 워크로드에 적합. Max Throughput : 500 MiB/s
+    - sc 1(HDD) : 가장 싼 HDD 볼륨으로 접근 빈도가 낮은 워크로드를 위한 설계. Max Throughput : 250 MiB/s
+  -SSD
+    - EC2 인스턴스의 Booting Volume으로 사용할 수 있다.
+   
+  -HDD
+    - EC2 인스턴스의 Booting Volume으로 사용할 수 없다.
+    - 125Mib to 16TiB
+
+
 - EBS Snapshot
   - EBS Volume을 특정 시점에 대해 백업하는 기능
   - 다른 AZ 혹은 다른 리전으로 백업 가능
   - 기능
     - EBS snapshot Archive : 스냅샷을 archive tier로 옮겨 75% 싸게할 수 있고 아카이브된 스토리지를 복원하는데 24~72시간 소요된다.
     - Recycle Bin for EBS snapshots : EBS 스냅샷을 삭제하는 경우 영구 삭제 대신 휴지통에 일정기간 보관하는 것. 보관되므로 실수로 삭제해도 복원이 가능하다.
-    - Fast Snapshot Restore(FSR) : 스냅샷을 전체 초기화해 첫 사용에서의 지연시간이 없게한다. 스냅샷이 아주 크고 EBS Volume 혹은 EC2 인스턴스를 빠르게 초기화할 때 유용하지만 비용이 비싸다.  
+    - Fast Snapshot Restore(FSR) : 스냅샷을 전체 초기화해 첫 사용에서의 지연시간이 없게한다. 스냅샷이 아주 크고 EBS Volume 혹은 EC2 인스턴스를 빠르게 초기화할 때 유용하지만 비용이 비싸다.
+- EBS Encryption
+  - EBS Volume을 암호화하는 것
+    - 저장 데이터가 Volume 내부에 암호화된다.
+    - 인스턴스와 Volume 간의 데이터 전송도 암호회된다.
+    - Snapshot도 암호회되며 Snapshot으로 생성한 볼륨도 암호화된다.
+  - 암호화 되지 않은 EBS Volume 암호화 과정
+    1. Volume의 EBS Snapshot 생성
+    2. EBS Snapshot을 복사하며 암호화
+    3. Snapshot으로 새 EBS Volume 생성
+    4. 암호화된 Volume을 인스턴스에 연결
+
+**AMI**
+- Amazon Machine Image로 EC2 인스턴스를 통해 만든 이미지를 말한다.
+- EC2에 설정하고자 하는 소프트웨어나 설정을 pre-package하기 때문에 빠른다.
+- 리전 사이 복제가 가능
+
