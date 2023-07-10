@@ -1,5 +1,5 @@
 # AWS-SAA
-## **IAM**
+## IAM
 IAM : Identify and Access Management
 
 IAM 보안을 위하여 MFA를 이용한 설정 가능
@@ -19,7 +19,7 @@ IAM Policy
 
 <br><br>
 
-## **EC2**
+## EC2
 EC2 : Elastic Compute Cloud = Infrastructure as a Service
 - 부트스트래핑 : 부팅 작업을 자동화하는 것. 초기 인스턴스 시자 시 필요한 유저 데이터(관련 라이브러리, 소프트웨어 업데이트... 등), 루트 계정에서 수행된다.
 - 인스턴스를 중지했다가 다시 시작하면 IPV4 Public IP는 바뀌지만 Private IP는 바뀌지 않는다.
