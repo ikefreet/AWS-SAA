@@ -93,15 +93,15 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - Recycle Bin for EBS snapshots : EBS 스냅샷을 삭제하는 경우 영구 삭제 대신 휴지통에 일정기간 보관하는 것. 보관되므로 실수로 삭제해도 복원이 가능하다.
   - Fast Snapshot Restore(FSR) : 스냅샷을 전체 초기화해 첫 사용에서의 지연시간이 없게한다. 스냅샷이 아주 크고 EBS Volume 혹은 EC2 인스턴스를 빠르게 초기화할 때 유용하지만 비용이 비싸다.
 - EBS Encryption
-- EBS Volume을 암호화하는 것
-  - 저장 데이터가 Volume 내부에 암호화된다.
-  - 인스턴스와 Volume 간의 데이터 전송도 암호회된다.
-  - Snapshot도 암호회되며 Snapshot으로 생성한 볼륨도 암호화된다.
-- 암호화 되지 않은 EBS Volume 암호화 과정
-  1. Volume의 EBS Snapshot 생성
-  2. EBS Snapshot을 복사하며 암호화
-  3. Snapshot으로 새 EBS Volume 생성
-  4. 암호화된 Volume을 인스턴스에 연결
+  - EBS Volume을 암호화하는 것
+    - 저장 데이터가 Volume 내부에 암호화된다.
+    - 인스턴스와 Volume 간의 데이터 전송도 암호회된다.
+    - Snapshot도 암호회되며 Snapshot으로 생성한 볼륨도 암호화된다.
+  - 암호화 되지 않은 EBS Volume 암호화 과정
+    1. Volume의 EBS Snapshot 생성
+    2. EBS Snapshot을 복사하며 암호화
+    3. Snapshot으로 새 EBS Volume 생성
+    4. 암호화된 Volume을 인스턴스에 연결
 
 **AMI**
 - Amazon Machine Image로 EC2 인스턴스를 통해 만든 이미지를 말한다.
