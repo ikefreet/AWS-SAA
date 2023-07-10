@@ -17,9 +17,6 @@ IAM Role
 IAM Policy
 - Json 파일로 구성되어 있으며 정책을 생성하고 IAM 자격 증명(사용자, 사용자 그룹 또는 역할) 또는 AWS 리소스에 연결하여 AWS에서 액세스를 관리한다.
 
----
-
-
 
 ## **EC2**
 EC2 : Elastic Compute Cloud = Infrastructure as a Service
