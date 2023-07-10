@@ -77,10 +77,10 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - io1/io2 (SSD) : 고성능의 SSD이고 mission-critical하고 저지연으로 좋은 성능을 내는 워크로드에 적합
   - st1(HDD) : 저비용의 HDD 볼륨으로 잦은 접근과 처리량이 많은 워크로드에 적합. Max Throughput : 500 MiB/s
   - sc 1(HDD) : 가장 싼 HDD 볼륨으로 접근 빈도가 낮은 워크로드를 위한 설계. Max Throughput : 250 MiB/s
--SSD
+- SSD
   - EC2 인스턴스의 Booting Volume으로 사용할 수 있다.
  
--HDD
+- HDD
   - EC2 인스턴스의 Booting Volume으로 사용할 수 없다.
   - 125Mib to 16TiB
 
