@@ -252,6 +252,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - 특징
     - 내부 설정, 패치 설치, Native 기능 활성화가 가능하다.
     - SSH 혹은 SSM Session Maanger를 통해 기저 EC2 인스턴스에 접근할 수 있다.
+  
 
 **Amazon Aurora**
 
