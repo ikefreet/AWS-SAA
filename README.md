@@ -184,17 +184,17 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
           - IP Address
 
   
-  **Sticky Sessions (Session Affinity in ELB)**
-  - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
-    - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
-    - 이는 CLB와 ALB에서도 사용 가능
-    - 쿠키를 통해서 이러한 Stickyness(고정성)이 가능하고 있고 만료 기간이 있다.
-    - 유저가 세션 데이터를 잃으면 안될 때 사용가능하다
-    - 하지만 Stickiness를 활성화하면 백엔드 EC2인스턴스에서 트래픽 불균형을 가질 수도 있다.
+**Sticky Sessions (Session Affinity in ELB)**
+- LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
+  - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
+  - 이는 CLB와 ALB에서도 사용 가능
+  - 쿠키를 통해서 이러한 Stickyness(고정성)이 가능하고 있고 만료 기간이 있다.
+  - 유저가 세션 데이터를 잃으면 안될 때 사용가능하다
+  - 하지만 Stickiness를 활성화하면 백엔드 EC2인스턴스에서 트래픽 불균형을 가질 수도 있다.
 
-  - Cookie
-    - Application-based Cookies
-    - Duration-based Cookies
+- Cookie
+  - Application-based Cookies
+  - Duration-based Cookies
 
-  **Cross-Zone Load Balancing**
+**Cross-Zone Load Balancing**
   
