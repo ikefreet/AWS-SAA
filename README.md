@@ -255,7 +255,16 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   
 
 **Amazon Aurora**
-
+- 특징
+  - AWS의 자체 기술로 None Open-Source 기술이다.
+  - Postgres & MySQL 지원
+  - AWS 클라우드에 최적화 되있고 Postgres나 MySQL보다 3~5배 빠르다.
+  - 스토리지는 자동으로 10GB - 128TB까지 자동으로 늘어날 수 있다.
+  - 복제본은 15개까지 생성 가능
+  - 장애 조치도 즉각적이라 Multi-AZ나 MySQL RDS보다 빠르다.
+  - 다만 그만큼 RDS에 비해 비용이 20% 비싸지만 기능적인 측면에서는 효율적이라고도 할 수 있다.  
+- Aurora High Availability & Read Scaling
+  - 
 
 
 
