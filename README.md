@@ -182,7 +182,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
         - - 대상 그룹
           - EC2 인스턴스
           - IP Address
-<br/>
+  
   - Sticky Sessions (Session Affinity in ELB)
     - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
       - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
