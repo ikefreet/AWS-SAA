@@ -130,12 +130,12 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 <br><br>
 ## 고가용성(High Availability) & 스케일링(Scalability)
 **Scalability & High Availability**
-  - Vertical Scalability(수직적 스케일링)
-    - 인스턴스 자체의 크기(사이즈 혹은 사양)를 늘리는 것
-    - 분산되지 않은 데이터베이스 같은 시스템에서 적합하다. (RDS, ElasticCache)
-  - Horizontal Scalability (수평적 스케일링)
-    - 인스턴스 혹은 시스템의 개수를 늘리는 것
-    - 일을 분산 처리하는 시스템
+- Vertical Scalability(수직적 스케일링)
+  - 인스턴스 자체의 크기(사이즈 혹은 사양)를 늘리는 것
+  - 분산되지 않은 데이터베이스 같은 시스템에서 적합하다. (RDS, ElasticCache)
+- Horizontal Scalability (수평적 스케일링)
+  - 인스턴스 혹은 시스템의 개수를 늘리는 것
+  - 일을 분산 처리하는 시스템
 
 - High Availability
   - 데이터 센터에서의 손실에서 살아남는 것이 목표. 하나가 중지되어도 나머지가 가동하여 정상적으로 운용되는 것
@@ -185,15 +185,16 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 
   
   **Sticky Sessions (Session Affinity in ELB)**
-    - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
-      - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
-      - 이는 CLB와 ALB에서도 사용 가능
-      - 쿠키를 통해서 이러한 Stickyness(고정성)이 가능하고 있고 만료 기간이 있다.
-      - 유저가 세션 데이터를 잃으면 안될 때 사용가능하다
-      - 하지만 Stickiness를 활성화하면 백엔드 EC2인스턴스에서 트래픽 불균형을 가질 수도 있다.
+  - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
+    - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
+    - 이는 CLB와 ALB에서도 사용 가능
+    - 쿠키를 통해서 이러한 Stickyness(고정성)이 가능하고 있고 만료 기간이 있다.
+    - 유저가 세션 데이터를 잃으면 안될 때 사용가능하다
+    - 하지만 Stickiness를 활성화하면 백엔드 EC2인스턴스에서 트래픽 불균형을 가질 수도 있다.
 
-    - Cookie
-      - Application-based Cookies
-      - Duration-based Cookies
+  - Cookie
+    - Application-based Cookies
+    - Duration-based Cookies
 
   **Cross-Zone Load Balancing**
+  
