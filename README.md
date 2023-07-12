@@ -233,9 +233,27 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 **RDS**
 - RDS(Relational Dabatase Service)
   - Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, Aurora
-  
 - Storage Auto Scaling
+  - RDS DB 인스턴스의 스토리지를 동적으로 스케일링해준다.
+- RDS Read Replicas for read scalability
+  - 읽기 복제본 스케일링
+  - 최대 15개의 읽기 복제본 생성 가능
+  - AZ / 리전 상관없이 가능
+  - 메인 DB와 복제 DB간 복제는 비동기로 이루어진다. 이는 읽기는 항상 일관되게 수행된다는 것을 의미함.
+    - 복제본에 복제되기 전에 앱에서 읽기를 요청하며 비동기로 복제된 뒤 반환하거나 메인에서 반환하므로 항상 전체 데이터를 읽는다.
+- RDS Multi AZ
+  - RDS Master DB가 AZ A에 있다면 동기 복제로 Stanby DB를 AZ B에 동기 복제한다.
+  - Master DB가 변경되면 그대로 Stanby DB에도 복제된다.
+  - Master DB에 장애가 생기면 Stanby DB가 이에 장애 대응을 한다.
+  - 따라서 가용성이 높일 수 있다.
+  - Stanby DB는 수동으로 Read/Write 하는 것이 불가능하다.
+- RDS Custom
+  - RDS에서는 기저 OS나 사용자 지정 기능에 접근 불가하지만 RDS Custom으로 접근 가능하다.
+  - 특징
+    - 내부 설정, 패치 설치, Native 기능 활성화가 가능하다.
+    - SSH 혹은 SSM Session Maanger를 통해 기저 EC2 인스턴스에 접근할 수 있다.
 
+**Amazon Aurora**
 
 
 
