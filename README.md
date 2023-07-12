@@ -129,3 +129,56 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 
 <br><br>
 ## 고가용성(High Availability) & 스케일링(Scalability)
+- Scalability & High Availability
+  - Vertical Scalability(수직적 스케일링)
+    - 인스턴스 자체의 크기(사이즈 혹은 사양)를 늘리는 것
+    - 분산되지 않은 데이터베이스 같은 시스템에서 적합하다. (RDS, ElasticCache)
+  - Horizontal Scalability (수평적 스케일링)
+    - 인스턴스 혹은 시스템의 개수를 늘리는 것
+    - 일을 분산 처리하는 시스템
+
+- High Availability
+  - 데이터 센터에서의 손실에서 살아남는 것이 목표. 하나가 중지되어도 나머지가 가동하여 정상적으로 운용되는 것
+  - Auto Scaling Group multi AZ 혹은 Load Balancer multi AZ를 이용하면 고가용성
+
+- Load Balancing
+  - Load Balancing이란 서버 혹은 서버 집합으로 트래픽을 백이나 다운스트림 EC2로 전달하는 역할을 한다.
+  - 목적
+    -  트래픽 분산
+    -  앱에 단일 접근 포인트 DNS를 통해 노출할 수 있다.
+    -  정기적인 Health Check를 통해 하위 인스턴스들의 failure에 대처할 수 있다.
+    -  웹 사이트에 SSL termination(HTTPS)를 제공한다.
+    -  가용영역 내 고가용성을 가질 수 있다.
+    -  클라우드 내에서 Private Traffic과 Public Traffic을 분리할 수 있다.
+  - ELB(Elastic Load Balancer)를 사용하는 이유
+    - 관리형 로드 밸러서로 AWS가 관리하며 어떤 경우에도 작동할 것을 보장함.
+    - 고가용성, 업그레이드 유지 및 관리를 전부 AWS가 한다.
+    - 연결할 수 있는 AWS 서비스가 많다.
+    - 종류
+      - ALB(Application Load Balancer)
+        - 7계층의 HTTP 전용 앱단 Load Balancer
+        - 다수의 HTTP 앱들이 장비간 라우팅에 사용됨
+        - 다수의 앱이 구동되는 동일 장비의 로드 밸런싱 지원
+        - Redirect 지원 (HTTP -> HTTPS)
+        - 다른 타켓 그룹에 대한 라우팅 테이블
+          - URL 내 경로에 따른 라우팅
+          - URL 내 호스트 이름으로 라우팅
+          - 쿼리스트링 & 헤더에 따른 라우팅
+        - 마이크로 서비스 혹은 컨테이너 기반 애플리케이션에서도 사용하기 적합하다.
+      - NLB(Network Load Balancer)
+        - 4계층(L4) Load Balancer로 TCP와 UDP를 다룬다. HTTP를 다루는 L7보다 하위 계층
+        - 성능이 매우 좋음. 초당 수백만건 요청 처리 가능. ALB에 비해 지연시간이 짧음
+          - ALB = 400ms, NLB = ~100ms
+          - AZ마다 1개의 static IP를 갖고 Elastic IP 할당을 지원
+        - 백엔드(HTTP) <-> 프론트(TCP) 혹은 백엔드(TCP) <-> 프론트(TCP) 일 때 사용
+        - 대상 그룹
+          - EC2 인스턴스
+          - NLB가 TCP 또는 UDP 트래픽을 EC2 인스턴스로 리다이렉트하는 것도 가능
+          - IP Address
+      - GWLB(Gateway Load Balancer)
+        - 배포 및 확장과 AWS의 타사 네트워크 가상 어플라이언스를 위해 사용됨.
+        - 모든 트래픽이 방화벽을 통과하게 하거나 침입 탐지 및 방지 시스템에 사용된다.
+        - - 대상 그룹
+          - EC2 인스턴스
+          - IP Address
+      
