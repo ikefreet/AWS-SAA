@@ -165,6 +165,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
           - URL 내 호스트 이름으로 라우팅
           - 쿼리스트링 & 헤더에 따른 라우팅
         - 마이크로 서비스 혹은 컨테이너 기반 애플리케이션에서도 사용하기 적합하다.
+  
       - NLB(Network Load Balancer)
         - 4계층(L4) Load Balancer로 TCP와 UDP를 다룬다. HTTP를 다루는 L7보다 하위 계층
         - 성능이 매우 좋음. 초당 수백만건 요청 처리 가능. ALB에 비해 지연시간이 짧음
@@ -181,4 +182,15 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
         - - 대상 그룹
           - EC2 인스턴스
           - IP Address
-      
+  - Sticky Sessions (Session Affinity in ELB)
+    - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
+      - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
+      - 이는 CLB와 ALB에서도 사용 가능
+      - 쿠키를 통해서 이러한 Stickyness(고정성)이 가능하고 있고 만료 기간이 있다.
+      - 유저가 세션 데이터를 잃으면 안될 때 사용가능하다
+      - 하지만 Stickiness를 활성화하면 백엔드 EC2인스턴스에서 트래픽 불균형을 가질 수도 있다.
+
+    - Cookie
+      - Application-based Cookies
+      - Duration-based Cookies
+  - 
