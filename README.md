@@ -197,4 +197,48 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - Duration-based Cookies
 
 **Cross-Zone Load Balancing**
+- with Crozz Zone Load Balancing
+  - 각 AZ에 ALB의 내부 인스턴스 개수가 불균형한 경우 모든 인스턴스에 고르게 부하를 분해하는 것
+- without Crozz Zone Load Balancing
+  - AZ 영역을 교차하지 않고 요청을 분산하는 것
+- ALB의 경우
+  - 교차 영역 Load Balancing이 기본으로 활성화돼있다.
+  - 데이터를 다른 AZ로 옮길 때 비용이 발생하지 않는다.
+- NLB & GWLB의 경우
+  - 교차 영역 Load Balancing이 기본적으로 비활성화돼있다.
+  - 데이터를 다른 AZ로 옮길 때 비용이 발생한다.
+
+**SSL/TLS 인증서**
+- SSL 인증서 : 클라이언트와 LB사이에서 트래픽이 이동하는 동안 암호화
+- SSL 보안 소켓 계층을 의미하고 연결을 암호화하는데 사용
+- TLS은 SSL의 신버전
+- 동작 방식
+  1. user -> HTTPS(HTTP에 SSL인증서를 사용하여 암호회)통신을 통해 LB 접근
+  2. SSL Termination(SSL 종료)
+  3. LB가 HTTP 통신을 통해 백엔드와 통신. 내부 VPC망은 Private이기에 HTTP해도 안전하다.
+- 특징
+  - LB는 X.509 인증서를 이용하는데 이를 SSL 혹은 TLS 서버 인증서라 부른다. AWS에서는 이 인증서들을 관리할 수 있는 ACM(AWS Certificate Manager)가 존재
+  - 인증서를 ACM에 업로드 가능
+  - HTTPS 리스너를 이용해야하고 default 인증서를 지정
+
+**Auto Scaling Group**
+- 클라우드는 요청 몇 번으로 빠르게 인스턴스 증량, 감량이 가능하기에 자동으로 scale out & scale in이 가능하다.
+- ASG에 연결된 모든 인스턴스를 ALB에 자동으로 연결
+- Unhealthy한 인스턴스가 존재하면 이를 종료하고 새 인스턴스를 시작한다.
+- Cloudwatch alarm으로 Scaling 가능
+
+<br/><br/>
+
+## RDS & Aurora & ElasticCache
+**RDS**
+- RDS(Relational Dabatase Service)
+  - Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, Aurora  
+- Storage Auto Scaling
+  - 
+
+
+
+
+
+
   
