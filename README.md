@@ -266,6 +266,16 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
     
 - Aurora High Availability & Read Scaling
   - 3개 AZ에 대해 6개의 사본을 저장
+    - peer-to-peer 복제를 통해 자가 회복할 수 있다.
+  - 하나의 Aurora 인스턴스가 쓰기를 담당 (Write Master)
+    - Multi-AZ랑 유사하며 쓰기는 하나의 DB만 수행하고 동작하지 않으면 평균 30초 이내로 복구
+    - Master에 문제가 생기면 다른 복제본이 Master가 된다.
+  - Replication + Self Healing + Auto Expanding
+
+- Aurora DB Cluster
+  - Writer Endpoint가 있어 항상 Master Writer를 가리킴. 클라이언트는 이 DNS로 접근
+  - Reader Endpoint의 경우 LB에 연결
+    
 
 
 
