@@ -85,7 +85,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
   - 125Mib to 16TiB
 
 
-- EBS Snapshot
+**EBS Snapshot**
 - EBS Volume을 특정 시점에 대해 백업하는 기능
 - 다른 AZ 혹은 다른 리전으로 백업 가능
 - 기능
@@ -129,7 +129,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
 
 <br><br>
 ## 고가용성(High Availability) & 스케일링(Scalability)
-- Scalability & High Availability
+**Scalability & High Availability**
   - Vertical Scalability(수직적 스케일링)
     - 인스턴스 자체의 크기(사이즈 혹은 사양)를 늘리는 것
     - 분산되지 않은 데이터베이스 같은 시스템에서 적합하다. (RDS, ElasticCache)
@@ -183,7 +183,7 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
           - EC2 인스턴스
           - IP Address
   
-  - Sticky Sessions (Session Affinity in ELB)
+  **Sticky Sessions (Session Affinity in ELB)**
     - LB에 2가지 요청을 수행하는 클라이언트가 요청에 응답하기 위해 백엔드에 동일한 인스턴스를 갖는 것
       - 유저1이 ALB를 거칠 때 몇번이고 같은 인스턴스로 통신하게 되는 것
       - 이는 CLB와 ALB에서도 사용 가능
@@ -194,4 +194,5 @@ IAM 보안을 위하여 MFA를 이용한 설정 가능
     - Cookie
       - Application-based Cookies
       - Duration-based Cookies
-  - 
+
+  **Cross-Zone Load Balancing**
